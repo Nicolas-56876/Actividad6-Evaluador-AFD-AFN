@@ -26,17 +26,6 @@ class AFNRequest(BaseModel):
 def fmt(restante: str) -> str:
     return restante if restante else "ε"
 
-
-def validar(alfabeto, inicial, finales, estados):
-    if inicial not in estados:
-        raise HTTPException(400, f"El estado inicial '{inicial}' no está en la tabla")
-    for f in finales:
-        if f not in estados:
-            raise HTTPException(400, f"El estado final '{f}' no está en la tabla")
-    for q, trans in estados_trans.items() if False else []:
-        pass
-
-
 def estados_afd(tabla):
     estados = set(tabla.keys())
     for trans in tabla.values():
